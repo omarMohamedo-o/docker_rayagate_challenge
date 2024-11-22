@@ -1,3 +1,5 @@
+version: '3.8'
+
 services:
   db:
     image: mysql:8.0
@@ -9,6 +11,8 @@ services:
       MYSQL_ROOT_PASSWORD: rootpassword
     volumes:
       - db_data:/var/lib/mysql
+    networks:
+      - app-network
     ports:
       - "3306:3306"
 
@@ -26,8 +30,10 @@ services:
       DB_PASSWORD: password
     volumes:
       - ./api:/var/www/html
+    networks:
+      - app-network
     ports:
-      - "8000:8000"
+      - "8000:8000"  # Maps the container's port 8000 to the host's port 8000
     depends_on:
       - db
 
@@ -40,6 +46,8 @@ services:
       VITE_API_URL: http://api:8000
     volumes:
       - ./client:/usr/src/app
+    networks:
+      - app-network
     ports:
       - "3000:3000"
     depends_on:
@@ -48,14 +56,20 @@ services:
   nginx:
     image: nginx:alpine
     container_name: nginx_proxy
-    ports:
-      - "80:80"
-      - "443:443"
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./nginx/certs:/etc/nginx/certs
+    ports:
+      - "80:80"
+      - "443:443"
     depends_on:
       - client
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
 
 volumes:
   db_data:
