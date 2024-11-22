@@ -20,10 +20,11 @@ This project is a full-stack application built with a Laravel API, a Nuxt.js fro
 Clone the repository to your local machine:
 
 ```bash
-git clone 
+git clone <repository-url>
 cd <repository-folder>
+```
 
-## Configure SSL Certificates
+### Configure SSL Certificates
 
 Ensure you have valid SSL certificates. The `nginx/certs/` folder should contain the following files:
 
@@ -32,26 +33,31 @@ Ensure you have valid SSL certificates. The `nginx/certs/` folder should contain
 
 For development, you can generate self-signed certificates.
 
-## Environment Configuration
+### Environment Configuration
 
 Make sure to configure the environment variables for your Laravel API and MySQL database in the `docker-compose.yml` file under the `api` service. The default values should be suitable for a local development environment.
 
-## Build and Start the Containers
+### Build and Start the Containers
 
 Run the following command to build and start all services (API, Client, MySQL, Nginx):
 
 ```bash
 docker-compose up --build
+```
 
 ## Accessing the Application
 
 ### Frontend (Nuxt.js)
 
 Once the containers are up, you can access the Nuxt.js application in your browser at: https://localhost:3000
-![Nuxt.js Frontend](assets/images/httpslocalhost3000.jpeg)
 
+**Screenshot Example**:  
+![Nuxt.js Frontend](C:/Users/Omar/Desktop/rayagate_challenge/httpslocalhost3000.jpeg)
 
 ### API (Laravel)
 
 The API is available at: https://localhost:8000
-![Nuxt.js Frontend](assets/images/httpslocalhost8000.jpeg)
+
+**Screenshot Example**:  
+![Laravel API](C:/Users/Omar/Desktop/rayagate_challenge/httpslocalhost8000.jpeg)
+```
