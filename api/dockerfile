@@ -1,0 +1,25 @@
+# Use the official PHP image
+FROM php:8.1-apache
+
+# Install dependencies
+RUN apt-get update && apt-get install -y libpng-dev libjpeg-dev libfreetype6-dev \
+    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+    && docker-php-ext-install gd
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy existing application directory to the container
+COPY . .
+
+# Enable mod_rewrite
+RUN a2enmod rewrite
+
+# Add ServerName directive to avoid Apache warning
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+
+# Expose port
+EXPOSE 80
+
+# Start Apache server in the foreground
+CMD ["apache2-foreground"]

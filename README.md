@@ -1,30 +1,57 @@
-# Challenge
+# Rayagate Challenge
 
-## Overview
+This project is a full-stack application built with a Laravel API, a Nuxt.js frontend, and an Nginx reverse proxy. It is containerized using Docker for easy deployment and scalability.
 
-This repository contains a simple web application with two main components:
+## Project Structure
 
-1. **API**: Written in Laravel PHP, the API serves as the backend for the application and listens on port 8000.
-2. **Client**: Developed using Nuxt.js, the client is the frontend of the application and listens on port 3000.
+- **API**: A Laravel backend that provides a REST API.
+- **Client**: A Nuxt.js frontend that communicates with the Laravel API.
+- **Nginx**: A reverse proxy that handles routing requests to the appropriate services (API or Client).
 
-### Environment Variables
+## Requirements
 
-- **API Directory**: Take a look at the `.env` file in the API directory. It should contain the necessary credentials to connect to the database.
+- Docker
+- Docker Compose
 
-  ```env
-  # api/.env
-  
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=bookapi
-DB_USERNAME=app
-DB_PASSWORD=password
+## Setup
 
-- **Client Directory**: Check the `.env` file in the Client directory. It should contain the connection string to connect to the API.
+### Clone the Repository
 
-  ```env
-  # client/.env
-  
-  VITE_API_URL=http://api:8000
+Clone the repository to your local machine:
 
+```bash
+git clone 
+cd <repository-folder>
+
+## Configure SSL Certificates
+
+Ensure you have valid SSL certificates. The `nginx/certs/` folder should contain the following files:
+
+- `self.crt`: Your SSL certificate.
+- `self.key`: Your SSL private key.
+
+For development, you can generate self-signed certificates.
+
+## Environment Configuration
+
+Make sure to configure the environment variables for your Laravel API and MySQL database in the `docker-compose.yml` file under the `api` service. The default values should be suitable for a local development environment.
+
+## Build and Start the Containers
+
+Run the following command to build and start all services (API, Client, MySQL, Nginx):
+
+```bash
+docker-compose up --build
+
+## Accessing the Application
+
+### Frontend (Nuxt.js)
+
+Once the containers are up, you can access the Nuxt.js application in your browser at: https://localhost:3000
+![Nuxt.js Frontend](assets/images/httpslocalhost3000.jpeg)
+
+
+### API (Laravel)
+
+The API is available at: https://localhost:8000
+![Nuxt.js Frontend](assets/images/httpslocalhost8000.jpeg)
