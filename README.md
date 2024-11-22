@@ -50,14 +50,10 @@ docker-compose up --build
 ### Frontend (Nuxt.js)
 
 Once the containers are up, you can access the Nuxt.js application in your browser at: https://localhost:3000
-
-**Screenshot Example**:  
-![Nuxt.js Frontend](C:/Users/Omar/Desktop/rayagate_challenge/httpslocalhost3000.jpeg)
+![image](https://github.com/user-attachments/assets/acc139af-a4b9-4efc-9f3f-e1670840932e)
 
 ### API (Laravel)
 
 The API is available at: https://localhost:8000
+![httpslocalhost8000](https://github.com/user-attachments/assets/40d73a24-e889-4f4c-8f9a-0165e65e3c47)
 
-**Screenshot Example**:  
-![Laravel API](C:/Users/Omar/Desktop/rayagate_challenge/httpslocalhost8000.jpeg)
-```
