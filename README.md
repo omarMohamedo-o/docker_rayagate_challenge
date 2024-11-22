@@ -20,7 +20,7 @@ This project is a full-stack application built with a Laravel API, a Nuxt.js fro
 Clone the repository to your local machine:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/omarMohamedo-o/docker_rayagate_challenge.git
 cd <repository-folder>
 ```
 
