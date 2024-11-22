@@ -51,6 +51,8 @@ docker-compose up --build
 
 Once the containers are up, you can access the Nuxt.js application in your browser at: https://localhost:3000
 ![image](https://github.com/user-attachments/assets/acc139af-a4b9-4efc-9f3f-e1670840932e)
+![local](https://github.com/user-attachments/assets/034e57fc-06d5-4434-9804-799788bb01c6)
+
 
 ### API (Laravel)
 
